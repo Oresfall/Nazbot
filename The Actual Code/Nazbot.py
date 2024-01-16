@@ -4,3 +4,5 @@
 #   2. 
 #
 
+if __name__ == 'main':
+    print("nazrin!")
