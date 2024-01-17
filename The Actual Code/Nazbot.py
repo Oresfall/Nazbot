@@ -27,7 +27,15 @@ async def on_ready():
 #   channel = client.get_channel(Channel ID here)
 #   await channel.send("Welcome! Don't forget to read the rules!")
 #   await member.send("Welcome to the server!")
-  
+
+
+# On Member Leaving, same thing as joining one, might be adding feature on who left the server
+#@client.event
+#async def on_member_remove(member):
+#   channel = client.get_channel(Channel ID here)
+#   await channel.send("See you soon!")
+#   await member.send("none atm ig")
+    
 
 # Below are all commands listed available for members to use
 @client.command()
@@ -37,6 +45,22 @@ async def hello(ctx):
 @client.command()
 async def trivia(ctx):
     await ctx.send("Squeeks! Looks like I haven't thought of any trivia, please wait soon!")
+
+@client.command(pass_context = True)
+async def join(ctx):
+    if (ctx.author.voice):
+        channel = ctx.author.voice.channel
+        await channel.connect()
+    else:
+        await ctx.send("Please join a Voice Channel first! Even my mice cant find where to go...")
+
+@client.command(pass_context = True)
+async def leave(ctx):
+    if (ctx.voice_client):
+        await ctx.guild.voice_client.disconnect()
+        await ctx.send("Ooh is that a Pagoda on sight?")
+    else:
+        await ctx.send("But Im not in a Voice Channel...")
 
 # Dont forget to put your bot token in apikeys.py
 client.run(BOTTOKEN)
