@@ -21,14 +21,15 @@ async def on_ready():
     print("--------------------------")
 
 
-#On member joining, remove brackets to make it work
+#On member joining, remove brackets to make it work (i still cant make a manual command to turn it off!!!!)
 #@client.event
 #async def on_member_join(member):
-#   channel = client.get_channel(Channel ID here) 
+#   channel = client.get_channel(Channel ID here)
+#   await channel.send("Welcome! Don't forget to read the rules!")
 #   await member.send("Welcome to the server!")
   
 
-# Below are all commands listed
+# Below are all commands listed available for members to use
 @client.command()
 async def hello(ctx):
     await ctx.send("Cheesed to meet you, im Nazbot!")
