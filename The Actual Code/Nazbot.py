@@ -30,13 +30,17 @@ async def on_ready():
   
 
 # Below are all commands listed available for members to use
-@client.command()
+@client.command(aliases=["hi"])
 async def hello(ctx):
     await ctx.send("Cheesed to meet you, im Nazbot!")
 
-@client.command()
+@client.command(aliases=["t", "T", "tr", "Tr"])
 async def trivia(ctx):
     await ctx.send("Squeeks! Looks like I haven't thought of any trivia, please wait soon!")
+
+@client.command(aliases=["nyn", "Nazrin", "Nyn"])
+async def nazrin(ctx):
+    await ctx.send("Coming soon!")
 
 # Dont forget to put your bot token in apikeys.py
 client.run(BOTTOKEN)
